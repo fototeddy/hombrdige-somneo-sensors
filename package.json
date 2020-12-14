@@ -1,0 +1,45 @@
+{
+  "name": "homebridge-somneo",
+  "version": "0.0.1",
+  "description": "HomeBridge module for Philips Somneo sensor",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha test/*",
+    "lint": "node_modules/.bin/eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fototeddy/homebridge-somneo.git"
+  },
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge",
+    "Philips",
+    "Somneo",
+    "WakeupLight",
+    "homekit"
+  ],
+  "engines": {
+    "node": ">=8.0.0",
+    "homebridge": ">=0.4.0"
+  },
+  "dependencies": {
+    "cryptiles": ">=4.1.2",
+    "fakegato-history": "^0.5.6",
+    "minimist": "^1.2.5",
+    "moment": "^2.18.1",
+    "sshpk": ">=1.13.2"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "diff": ">=3.5.0",
+    "eslint": "^6.8.0",
+    "mocha": "^7.1.2"
+  },
+  "author": "fototeddy <christopher.freifunk.wrg@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fototeddy/homebridge-somneo/issues"
+  },
+  "homepage": "https://github.com/fototeddy/homebridge-somneo#readme"
+}
