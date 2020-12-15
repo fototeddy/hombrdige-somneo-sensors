@@ -3,8 +3,8 @@
 [HomeBridge](http://github.com/nfarina/homebridge) module for Philips Somneo sensordata
 
 Temperature Humidity and Lux can be displayed in Homekit as SensorValues.
-At the moment this Plugin uses a quick and dirty way to fetch the Somneo SelfSigned Certificate. This needs to clear before using this PlugIn and to be fixed in further releases.
-
+This Plugin uses FakeGato-History for temperature and humidity
+At the Moment FakeGate-History is hard coded as true and storage:fs the config options for "history" don't do anything at this time. 
 ## ToDo
 
 - add Somneo Noise Data

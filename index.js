@@ -25,7 +25,6 @@ class SomneoAccessory {
     this.displayName = config["name"];
     this.dataCache = null;
     this.jsonURL = config["json_data"];
-    //this.temperatureDataURL = config["public_temperature_json_data"];
     this.SomneoModel = config["Somneo-Model"];
     if (!this.jsonURL && !this.temperatureDataURL) {
       throw new Error("Invalid configuration");
@@ -35,7 +34,7 @@ class SomneoAccessory {
       this.updateIntervalSeconds = 120;
     }
     this.log("Somneo: Update interval", this.updateIntervalSeconds, "s");
-    this.historyOptions = config["history"] || {};
+    this.historyOptions = config["history"] || {}; //actually this does not effect anything at the moment
     const haveTemperatureData = !!this.jsonURL;
     // Information
     this.informationService = new Service.AccessoryInformation();
@@ -47,9 +46,10 @@ class SomneoAccessory {
       this.temperatureService = new Service.TemperatureSensor(`Temperature ${this.displayName}`);
       this.lightService = new Service.LightSensor(`Light ${this.displayName}`);
       //this.noiseService = new CustomCharacteristic.Noise(`Noise ${this.displayName}`);
-    //  this.temperatureService.addOptionalCharacteristic(CustomCharacteristic.AirPressure);
+      //  this.temperatureService.addOptionalCharacteristic(CustomCharacteristic.AirPressure);
       // Humidity sensor
       this.humidityService = new Service.HumiditySensor(`Humidity ${this.displayName}`);
+      // comment out this line if you do not want to use FakeGatoHistoryService
       this.loggingService = new FakeGatoHistoryService('weather', this, { storage: 'fs' });
     }
     this.updateServices = (dataCache) => {
@@ -89,9 +89,9 @@ this.temperatureService.setCharacteristic(CustomCharacteristic.AirPressure, this
         this.loggingService.addEntry({
           time: moment().unix(),
           temp: temperature,
-          lux: lux,
+          //lux: lux, //do not log lux cause EVE don't know what to do with it
           humidity: humidity,
-          noise: noise
+          //noise: noise //do not log noise cause EVE don't know what to do with it
         });
       }
     };
