@@ -2,7 +2,7 @@
   "name": "Somneo",
   "accessory": "somneo",
   "json_data": "https://<SomneoIP>/di/v1/products/1/wusrd",
-  "SomneoModel": "CHX31",
+  "Somneo-Model": "CHX31",
   "update_interval_seconds": 60,
   "history": {
     "storage": "fs"

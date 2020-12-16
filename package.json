@@ -1,6 +1,6 @@
 {
   "name": "homebridge-somneo-sensors",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "HomeBridge module for Philips Somneo sensor",
   "main": "index.js",
   "scripts": {

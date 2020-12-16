@@ -12,7 +12,7 @@ module.exports = function(homebridge) {
   FakeGatoHistoryService = require('fakegato-history')(homebridge);
 
   homebridge.registerAccessory(
-    "homebridge-somneo",
+    "homebridge-somneo-sensors",
     "somneo",
     SomneoAccessory
   );
