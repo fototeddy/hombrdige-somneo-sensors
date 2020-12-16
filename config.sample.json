@@ -4,6 +4,7 @@
   "json_data": "https://<SomneoIP>/di/v1/products/1/wusrd",
   "Somneo-Model": "CHX31",
   "update_interval_seconds": 60,
+  "log":"<true / false"
   "history": {
     "storage": "fs"
     "history options do not do anything at the moment. fakegato history is hardcoded to storag:fs"

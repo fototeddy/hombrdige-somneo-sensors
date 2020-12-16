@@ -23,6 +23,7 @@ class SomneoAccessory {
     this.category = Accessory.Categories.SENSOR;
     this.log = log;
     this.displayName = config["name"];
+    this.consoleLog = config["log"]; //just if meassured values should be logged in console
     this.dataCache = null;
     this.jsonURL = config["json_data"];
     this.SomneoModel = config["Somneo-Model"];
@@ -63,17 +64,24 @@ class SomneoAccessory {
 
       this.informationService.setCharacteristic(Characteristic.FirmwareRevision, dataCache.software_version);
       if (haveTemperatureData && temperature) {
-        this.log("Measured temperature", temperature, "°C");
+        if (this.consoleLog == "true") {
+          //this.log("console Log status is:", this.consoleLog);
+          this.log("Measured temperature", temperature, "°C");
+        }
         this.temperature = parseFloat(temperature);
         this.temperatureService.setCharacteristic(Characteristic.CurrentTemperature, this.temperature);
       }
       if (haveTemperatureData && humidity) {
-        this.log("Measured humidity", humidity, "%");
+        if (this.consoleLog == "true") {
+          this.log("Measured humidity", humidity, "%");
+        }
         this.humidity = humidity;
         this.humidityService.setCharacteristic(Characteristic.CurrentRelativeHumidity, this.humidity);
       }
       if (haveTemperatureData && lux) {
-        this.log("Measured light level", lux, "LUX");
+        if (this.consoleLog == "true") {
+          this.log("Measured light level", lux, "LUX");
+        }
         this.lux = lux;
         this.lightService.setCharacteristic(Characteristic.CurrentAmbientLightLevel, this.lux);
       }
@@ -84,7 +92,7 @@ this.temperatureService.setCharacteristic(CustomCharacteristic.AirPressure, this
         //this.noiseService.setCharacteristic(CustomCharacteristic.Noise, this.noise);
       }*/
 
-
+//FakeGato loggingService
       if (haveTemperatureData) {
         this.loggingService.addEntry({
           time: moment().unix(),
